@@ -2,7 +2,27 @@
 
 ## 📌 Project Overview
 
-This project analyzes machine failure patterns to support **predictive maintenance strategies**. Using SQL and Power BI, the analysis identifies key drivers of failure and risk clusters.
+This project focuses on analyzing machine failure patterns to enable **predictive maintenance** in a manufacturing environment. The goal is to identify key factors contributing to machine breakdowns and reduce unplanned downtime through data-driven insights.
+
+The dataset consists of machine operational parameters such as **tool wear, torque, and machine type**, which are analyzed to understand their impact on failure rates.
+
+The workflow includes:
+
+* Data extraction and preprocessing using SQL
+* Exploratory data analysis to identify trends and anomalies
+* Building interactive dashboards in Power BI
+* Identifying high-risk machines and failure thresholds
+
+The analysis reveals that **tool wear is the most critical factor influencing failures**, with a sharp increase in failure probability beyond a certain threshold. Machines are categorized into **High, Medium, and Low risk clusters**, allowing targeted maintenance strategies.
+
+This project demonstrates how data analytics can be applied to:
+
+* Optimize maintenance scheduling
+* Reduce operational costs
+* Improve machine reliability
+
+Overall, it provides a practical implementation of **predictive maintenance using data analytics and visualization tools**.
+
 
 ## 📊 Dashboard Highlights
 
