@@ -51,7 +51,8 @@ Machine-Failure-Analysis/
 │
 ├── Machine_Data.sql
 ├── Machine_Failure_Analysis.pbix
-├── Machine_Failure_Analysis.pdf
+├── Main_Dashboard.jpg
+├── Insights.jpg
 └── README.md
 ```
 
