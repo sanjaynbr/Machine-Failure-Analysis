@@ -14,7 +14,7 @@ This project analyzes machine failure patterns to support **predictive maintenan
 * **Average Tool Wear:** 107.95
 * **High-Risk Contribution:** 58.4%
 
-*(Source: Dashboard PDF)*
+
 
 ---
 
