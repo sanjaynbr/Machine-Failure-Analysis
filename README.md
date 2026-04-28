@@ -72,6 +72,112 @@ Overall, it provides a practical implementation of **predictive maintenance usin
 * **Power BI** – Data visualization
 * **Data Analysis** – Predictive insights
 
+## 🧮 Sample SQL Queries
+
+### 📌 1. Average Air Temperature by Machine Type
+
+```sql
+SELECT 
+    Type,
+    Machine_failure,
+    AVG(Air_temperature_K) AS Avg_Air_Temperature
+FROM dbo.machine_data
+GROUP BY Type, Machine_failure
+ORDER BY Type;
+```
+
+### 📌 2. Effect of Tool Wear and Torque on Failure
+
+```sql
+SELECT  
+    Machine_failure,
+    AVG(Tool_wear_min) AS Avg_Tool_Wear,
+    AVG(Torque_Nm) AS Avg_Torque
+FROM machine_data
+GROUP BY Machine_failure;
+```
+
+### 📌 3. Effect of RPM on Failure
+
+```sql
+SELECT 
+    Machine_failure,
+    AVG(Rotational_Speed_rpm) AS Avg_RPM
+FROM machine_data
+GROUP BY Machine_failure;
+```
+
+### 📌 4. Root Cause Analysis
+
+```sql
+SELECT 
+    Machine_failure,
+    AVG(Tool_wear_min) AS Tool_wear,
+    AVG(Torque_Nm) AS Torque,
+    AVG(Rotational_speed_rpm) AS RPM,
+    AVG(Process_temperature_K - Air_temperature_K) AS Temp_diff
+FROM dbo.machine_data
+GROUP BY Machine_failure;
+```
+
+### 📌 5. Failure Rate by Machine Type
+
+```sql
+WITH Failure_Rate AS (
+    SELECT 
+        Type,
+        COUNT(*) AS Total,
+        SUM(machine_failure) AS Failures,
+        ROUND(SUM(machine_failure)*100.0/COUNT(*), 2) AS Failure_rate
+    FROM machine_data
+    GROUP BY Type
+)
+SELECT * FROM Failure_Rate;
+```
+
+### 📌 6. Risk Level Classification
+
+```sql
+CREATE VIEW Risk_level_view AS
+SELECT *,
+   CASE
+        WHEN Tool_wear_min > 130 OR Torque_Nm > 45 THEN 'High Risk'
+        WHEN Tool_wear_min > 100 OR Torque_Nm > 40 THEN 'Medium Risk'
+        ELSE 'Low Risk'
+   END AS Risk_level
+FROM machine_data;
+```
+
+```sql
+SELECT 
+    Type,
+    COUNT(*) AS Total,
+    ROUND(SUM(machine_failure)*100.0/COUNT(*),2) AS Failure_Rate,
+    Risk_Level
+FROM Risk_level_view
+GROUP BY Type, Risk_Level
+ORDER BY
+    CASE 
+        WHEN Risk_Level = 'High Risk' THEN 1
+        WHEN Risk_Level = 'Medium Risk' THEN 2
+        WHEN Risk_Level = 'Low Risk' THEN 3
+    END,
+    Failure_Rate DESC;
+```
+
+---
+
+### 🧠 Purpose of These Queries
+
+These queries were used to:
+
+* Analyze key factors influencing machine failures
+* Identify relationships between tool wear, torque, and RPM
+* Calculate failure rates across machine types
+* Classify machines into risk categories for predictive maintenance
+
+
+
 ---
 
 ## 📂 Project Structure
