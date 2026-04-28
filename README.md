@@ -4,6 +4,16 @@
 
 This project analyzes machine failure patterns to support **predictive maintenance strategies**. Using SQL and Power BI, the analysis identifies key drivers of failure and risk clusters.
 
+## 📊 Dashboard Highlights
+
+### Failure Overview
+![Overview](Main_Dashboard.png)
+
+### Key Insights
+![Overview](Insights.png)
+
+
+
 ---
 
 ## 📊 Key Metrics
