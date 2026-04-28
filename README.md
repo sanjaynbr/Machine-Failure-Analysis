@@ -7,7 +7,7 @@ This project analyzes machine failure patterns to support **predictive maintenan
 ## 📊 Dashboard Highlights
 
 ### Failure Overview
-![Overview](Main_Dashboard.png)
+![Overview](Main_Dashboard.jpg)
 
 ### Key Insights
 ![Overview](Insights.png)
